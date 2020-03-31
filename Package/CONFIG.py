@@ -66,13 +66,13 @@ def MAIN_ENV(args):
 def MAIN_EXTRACT(args):
     set_global(args)
 
-    libgcrypt_so = "libgcrypt.so.20.1.6"
-
     ops.mkdir(dst_lib_dir)
-    ops.copyto(ops.path_join(src_lib_dir, libgcrypt_so), dst_lib_dir)
-    ops.ln(dst_lib_dir, libgcrypt_so, "libgcrypt.so.20.1")
-    ops.ln(dst_lib_dir, libgcrypt_so, "libgcrypt.so.20")
-    ops.ln(dst_lib_dir, libgcrypt_so, "libgcrypt.so")
+
+    lib_so = "libgcrypt.so.20.0.3"
+    ops.copyto(ops.path_join(src_lib_dir, lib_so), dst_lib_dir)
+    ops.ln(dst_lib_dir, lib_so, "libgcrypt.so.20.0")
+    ops.ln(dst_lib_dir, lib_so, "libgcrypt.so.20")
+    ops.ln(dst_lib_dir, lib_so, "libgcrypt.so")
 
     ops.mkdir(tmp_include_dir)
     ops.copyto(ops.path_join(src_include_dir, 'gcrypt.h'), tmp_include_dir)
